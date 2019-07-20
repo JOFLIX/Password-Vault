@@ -5,12 +5,12 @@ import pyperclip
 ######Create functions to implement what the behaviours we have created####
 
 
-def create_detail(fname, lname, phone, email):
+def create_detail(u_name, lname, phone, email):
     """
     Function to create a new detail
 
     """
-    new_detail = Detail(fname, lname, phone, email)
+    new_detail = Detail(u_name, lname, phone, email)
     return new_detail
 
 ###We create a function called create_detail(), that takes in four arguments###
@@ -198,7 +198,7 @@ def main():
                                         "You dont seem to have any account details saved yet")
                                     print('\n')
                     elif short_code == "exit()":
-                                print("Bye .......")
+                                print("Safely secured!!")
                                 break
                     else:
                             print(
