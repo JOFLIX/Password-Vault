@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
 from detail import Detail
+# from password_gen import Generator
 import pyperclip
 ######Create functions to implement what the behaviours we have created####
 
@@ -93,10 +94,11 @@ def copy_email(cls, number):
 
 
 def main():
-    print("Hello Welcome to your detail list. What is your name?")
+    print('Your secret word is used to access this vault.')
+    print("Hello Welcome to your password vault. What is your secret word?")
     user_name = input()
 
-    print(f"Hello {user_name}. what would you like to do?")
+    print(f"Hello {user_name}. Wh?")
     print('\n')
 
     while True:
@@ -118,7 +120,7 @@ def main():
                             print("Enter Password")
                             p_number = input()
 
-                            print("Email address ...")
+                            print("Email address or Phone number used to register the account ...")
                             e_address = input()
 
                             # create and save new Detail.
@@ -136,7 +138,7 @@ def main():
 
                                     for detail in display_details():
                                             print(
-                                                f"{detail.first_name} {detail.last_name} {e_address} {detail.phone_number}")
+                                                f"{detail.user_name} {detail.account_name} {e_address} {detail.phone_number}")
 
                                     print('\n')
                             else:
@@ -154,7 +156,7 @@ def main():
                                     search_detail = find_detail(
                                         search_number)
                                     print(
-                                        f"{search_detail.first_name} {search_detail.last_name}")
+                                        f"{search_detail.user_name} {search_detail.account_name}")
                                     print('-' * 20)
 
                                     print(
@@ -170,7 +172,7 @@ def main():
                          if check_existing_details(search_number):
                              search_detail = find_detail(search_number)
                              print(
-                                 f"{search_detail.first_name} {search_detail.last_name}")
+                                 f"{search_detail.user_name} {search_detail.account_name}")
                              print("_"*20)
                              detail.delete_detail()
                         #  if detail.delete_detail():
@@ -187,13 +189,13 @@ def main():
 
                                     for detail in delete_details():
                                             print(
-                                                f"{detail.first_name} {detail.last_name} {e_address} {detail.phone_number}")
+                                                f"{detail.user_name} {detail.account_name} {e_address} {detail.phone_number}")
 
                                     print('\n')
                             else:
                                     print('\n')
                                     print(
-                                        "You dont seem to have any details saved yet")
+                                        "You dont seem to have any account details saved yet")
                                     print('\n')
                     elif short_code == "ex":
                                 print("Bye .......")
