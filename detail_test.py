@@ -27,7 +27,7 @@ class TestDetail(unittest.TestCase):
         '''
 
         self.assertEqual(self.new_detail.user_name, "James")
-        self.assertEqual(self.new_detail.last_name, "Muriuki")
+        self.assertEqual(self.new_detail.user_name, "Muriuki")
         self.assertEqual(self.new_detail.phone_number, "0712345678")
         self.assertEqual(self.new_detail.email, "james@ms.com")
 
@@ -84,7 +84,7 @@ class TestDetail(unittest.TestCase):
         test_save_multiple_detail to check if we can save multiple detail objects
         """
         self.new_detail.save_detail()
-        test_detail = Detail("Test", "user", "0712345678",
+        test_detail = Detail("Test", "user", "2222222222",
                                "test@user.com")  # new detail_list
         test_detail.save_detail()
         self.assertEqual(len(Detail.detail_list), 2)
@@ -96,7 +96,7 @@ class TestDetail(unittest.TestCase):
             '''
             self.new_detail.save_detail()
             test_detail = Detail(
-                "Test", "user", "0712345678", "test@user.com")  # new detail
+                "Test", "user", "22222222222", "test@user.com")  # new detail
             test_detail.save_detail()
 
             self.new_detail.delete_detail()  # Deleting a detail object
