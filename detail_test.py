@@ -28,7 +28,7 @@ class TestDetail(unittest.TestCase):
 
         self.assertEqual(self.new_detail.user_name, "James")
         self.assertEqual(self.new_detail.user_name, "Muriuki")
-        self.assertEqual(self.new_detail.phone_number, "0712345678")
+        self.assertEqual(self.new_detail.account_password, "0712345678")
         self.assertEqual(self.new_detail.email, "james@ms.com")
 
     def test_save_detail(self):
@@ -102,17 +102,17 @@ class TestDetail(unittest.TestCase):
             self.new_detail.delete_detail()  # Deleting a detail object
             self.assertEqual(len(Detail.detail_list), 1)
 
-    def test_find_detail_by_number(self):
+    def test_find_detail_by_password(self):
         '''
-        test to check if we can find a detail by phone number and display information
+        test to check if we can find a detail by account password and display information
         '''
 
         self.new_detail.save_detail()
-        test_detail = Detail("Test", "user", "0711223344",
+        test_detail = Detail("Test", "user", "2222222222",
                                "test@user.com")  # new detail
         test_detail.save_detail()
 
-        found_detail = Detail.find_by_number("0711223344")
+        found_detail = Detail.find_by_password("2222222222")
 
         self.assertEqual(found_detail.email, test_detail.email)
 
@@ -122,11 +122,11 @@ class TestDetail(unittest.TestCase):
         '''
 
         self.new_detail.save_detail()
-        test_detail = Detail("Test", "user", "0711223344",
+        test_detail = Detail("Test", "user", "2222222222",
                                "test@user.com")  # new detail
         test_detail.save_detail()
 
-        detail_exists = Detail.detail_exist("0711223344")
+        detail_exists = Detail.detail_exist("2222222222")
 
         self.assertTrue(detail_exists)
 
