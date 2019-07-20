@@ -115,7 +115,7 @@ def main():
                             f_name = input()
 
                             print("Enter account name(eg. Facebook, WhatsApp)")
-                            l_name = input()
+                            account_name = input()
 
                             print("Enter Password")
                             p_password = input()
@@ -125,9 +125,9 @@ def main():
 
                             # create and save new Detail.
                             save_details(create_detail(
-                                f_name, l_name, p_password, e_address))
+                                f_name, account_name, p_password, e_address))
                             print('\n')
-                            print(f"New detail {f_name} {l_name}  created")
+                            print(f"New detail {f_name} {account_name}  created")
                             print('\n')
 
                     elif short_code == 'dd':
