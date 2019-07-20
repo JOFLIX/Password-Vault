@@ -112,7 +112,7 @@ def main():
                             print("Enter registered account user name ....")
                             f_name = input()
 
-                            print("Last name ...")
+                            print("Enter account name(eg. Facebook, WhatsApp)")
                             l_name = input()
 
                             print("Phone number ...")
