@@ -103,7 +103,7 @@ def main():
 
     while True:
                     print(
-                        "Use these short codes : un - create a new user account, dc - display details, fc -find a detail, ex -exit the detail list , del -delete detail, del-A -Delete all")
+                        "Use these short codes : un - create a new user account, dd - display details, fd -find an account detail, exit() -exit the detail list , del -delete detail, clear() -Delete all")
 
                     short_code = input().lower()
 
@@ -130,7 +130,7 @@ def main():
                             print(f"New detail {f_name} {l_name}  created")
                             print('\n')
 
-                    elif short_code == 'dc':
+                    elif short_code == 'dd':
 
                             if display_details():
                                     print("Here is a list of all your details")
@@ -147,7 +147,7 @@ def main():
                                         "You dont seem to have any details saved yet")
                                     print('\n')
 
-                    elif short_code == 'fc':
+                    elif short_code == 'fd':
 
                             print("Enter the number you want to search for")
 
@@ -181,7 +181,7 @@ def main():
                                  f'{f_name} {e_address} Successfully deleted!!')
                              print('\n')
 
-                    elif short_code == 'del-A':
+                    elif short_code == 'clear()':
 
                             if delete_details():
                                     print("Here is a list of all your details")
@@ -197,7 +197,7 @@ def main():
                                     print(
                                         "You dont seem to have any account details saved yet")
                                     print('\n')
-                    elif short_code == "ex":
+                    elif short_code == "exit()":
                                 print("Bye .......")
                                 break
                     else:
