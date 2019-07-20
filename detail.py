@@ -9,13 +9,13 @@ class Detail:
 
     detail_list = []  # Empty detail list
 
-    def __init__(self, user_name, account_name, number, email):
+    def __init__(self, user_name, account_name, password, email):
 
       # docstring removed for simplicity
 
         self.user_name = user_name
         self.account_name = account_name
-        self.phone_number = number
+        self.account_password = password
         self.email = email
 
 # detail_list = [] # Empty detail list
@@ -42,31 +42,31 @@ class Detail:
     #     detail.detail_list.remove()
 
     @classmethod
-    def find_by_number(cls, number):
+    def find_by_password(cls, password):
         '''
-        Method that takes in a number and returns a detail that matches that number.
+        Method that takes in a password and returns a detail that matches that password.
 
         Args:
-            number: Phone number to search for
+            password: account password to search for
         Returns :
-            detail of person that matches the number.
+            detail of person that matches the password.
         '''
 
         for detail in cls.detail_list:
-            if detail.phone_number == number:
+            if detail.account_password == password:
                 return detail
 
     @classmethod
-    def detail_exist(cls, number):
+    def detail_exist(cls, password):
         '''
         Method that checks if a detail exists from the detail list.
         Args:
-            number: Phone number to search if it exists
+            password: account password to search if it exists
         Returns :
             Boolean: True or false depending if the detail exists
         '''
         for detail in cls.detail_list:
-            if detail.phone_number == number:
+            if detail.account_password == password:
                     return True
 
         return False
@@ -81,8 +81,8 @@ class Detail:
 
 # ......................
     @classmethod
-    def copy_email(cls,number):
-        detail_found = Detail.find_by_number(number)
+    def copy_email(cls,password):
+        detail_found = Detail.find_by_password(password)
         pyperclip.copy(detail_found.email)
 
     @classmethod
