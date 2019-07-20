@@ -109,7 +109,7 @@ def main():
                             print("New User Acccount")
                             print("-"*10)
 
-                            print("First name ....")
+                            print("Enter registered account user name ....")
                             f_name = input()
 
                             print("Last name ...")
