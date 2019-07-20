@@ -9,12 +9,12 @@ class Detail:
 
     detail_list = []  # Empty detail list
 
-    def __init__(self, user_name, last_name, number, email):
+    def __init__(self, user_name, account_name, number, email):
 
       # docstring removed for simplicity
 
         self.user_name = user_name
-        self.last_name = last_name
+        self.account_name = account_name
         self.phone_number = number
         self.email = email
 
