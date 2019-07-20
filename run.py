@@ -115,7 +115,7 @@ def main():
                             print("Enter account name(eg. Facebook, WhatsApp)")
                             l_name = input()
 
-                            print("Phone number ...")
+                            print("Enter Password")
                             p_number = input()
 
                             print("Email address ...")
