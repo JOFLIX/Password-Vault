@@ -101,12 +101,12 @@ def main():
 
     while True:
                     print(
-                        "Use these short codes : Un - create a new user account, dc - display details, fc -find a detail, ex -exit the detail list , del -delete detail, del-A -Delete all")
+                        "Use these short codes : un - create a new user account, dc - display details, fc -find a detail, ex -exit the detail list , del -delete detail, del-A -Delete all")
 
                     short_code = input().lower()
 
-                    if short_code == 'Un':
-                            print("New Detail")
+                    if short_code == 'un':
+                            print("New User Acccount")
                             print("-"*10)
 
                             print("First name ....")
