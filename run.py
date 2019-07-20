@@ -5,12 +5,12 @@ import pyperclip
 ######Create functions to implement what the behaviours we have created####
 
 
-def create_detail(u_name, lname, phone, email):
+def create_detail(u_name, lname, account, email):
     """
     Function to create a new detail
 
     """
-    new_detail = Detail(u_name, lname, phone, email)
+    new_detail = Detail(u_name, lname, account, email)
     return new_detail
 
 ###We create a function called create_detail(), that takes in four arguments###
@@ -41,24 +41,24 @@ def del_detail(detail):
 ##Fininding a detail ##
 
 
-def find_detail(number):
+def find_detail(password):
     """
-    Function that finds a detail by number and returns the detail
+    Function that finds a detail by password and returns the detail
     """
-    return Detail.find_by_number(number)
+    return Detail.find_by_password(password)
 
-### We create a func that takes in a number and calls the Detail class method find_by_number that returns the detail. ###
+### We create a func that takes in a password and calls the Detail class method find_by_password that returns the detail. ###
 
 ### Check if a detail exists ###
 
 
-def check_existing_details(number):
+def check_existing_details(password):
     """
-    Function that check if a detail exists with that number and return a Boolean
+    Function that check if a detail exists with that password and return a Boolean
     """
-    return Detail.detail_exist(number)
+    return Detail.detail_exist(password)
 
-### The function check_existing_details takes in a number as an argument and calls the class method detail_exist which returns a boolean.###
+### The function check_existing_details takes in a password as an argument and calls the class method detail_exist which returns a boolean.###
 
 ## Displaying all details ##
 
@@ -84,12 +84,12 @@ def delete_details():
 
 
 @classmethod
-def copy_email(cls, number):
+def copy_email(cls, password):
     """
     A funct that copies the email using the pyperclip framework
     We import the framework then declare a function that copies the emails.
     """
-    detail_found = Detail.find_by_number(number)
+    detail_found = Detail.find_by_password(password)
     pyperclip.copy(detail_found.email)
 
 
@@ -97,13 +97,13 @@ def main():
     print('Your secret word is used to access this vault.')
     print("Hello Welcome to your password vault. What is your secret word?")
     user_name = input()
-
-    print(f"Hello {user_name}. Wh?")
+    print("="*62)
+    print(f"Hello {user_name}. How do we help you?")
     print('\n')
 
     while True:
                     print(
-                        "Use these short codes : un - create a new user account, dd - display details, fd -find an account detail, exit() -exit the detail list , del -delete detail, clear() -Delete all")
+                        "Use these short codes to specify how you we may help you : un - create a new user account, dd - display details, fd -find an account detail, exit() -exit the detail list , del -delete detail, clear() -Delete all")
 
                     short_code = input().lower()
 
@@ -118,14 +118,14 @@ def main():
                             l_name = input()
 
                             print("Enter Password")
-                            p_number = input()
+                            p_password = input()
 
-                            print("Email address or Phone number used to register the account ...")
+                            print("Email address or account password used to register the account ...")
                             e_address = input()
 
                             # create and save new Detail.
                             save_details(create_detail(
-                                f_name, l_name, p_number, e_address))
+                                f_name, l_name, p_password, e_address))
                             print('\n')
                             print(f"New detail {f_name} {l_name}  created")
                             print('\n')
@@ -138,7 +138,7 @@ def main():
 
                                     for detail in display_details():
                                             print(
-                                                f"{detail.user_name} {detail.account_name} {e_address} {detail.phone_number}")
+                                                f"{detail.user_name} {detail.account_name} {e_address} {detail.account_password}")
 
                                     print('\n')
                             else:
@@ -149,33 +149,33 @@ def main():
 
                     elif short_code == 'fd':
 
-                            print("Enter the number you want to search for")
+                            print("Enter the password you want to search for")
 
-                            search_number = input()
-                            if check_existing_details(search_number):
+                            search_password = input()
+                            if check_existing_details(search_password):
                                     search_detail = find_detail(
-                                        search_number)
+                                        search_password)
                                     print(
                                         f"{search_detail.user_name} {search_detail.account_name}")
-                                    print('-' * 20)
+                                    print('=' * 80)
 
                                     print(
-                                        f"Phone number.......{search_detail.phone_number}")
+                                        f"account password.......{search_detail.account_password}")
                                     print(
                                         f"Email address.......{search_detail.email}")
                             else:
                                     print("That detail does not exist")
 
                     elif short_code == "del":
-                         print("Enter the number of the detail you want to delete")
-                         search_number = input()
-                         if check_existing_details(search_number):
-                             search_detail = find_detail(search_number)
+                         print("Enter the password of the detail you want to delete")
+                         search_password = input()
+                         if check_existing_details(search_password):
+                             search_detail = find_detail(search_password)
                              print(
                                  f"{search_detail.user_name} {search_detail.account_name}")
                              print("_"*20)
                              detail.delete_detail()
-                        #  if detail.delete_detail():
+                        
                              print('\n')
                              print(
                                  f'{f_name} {e_address} Successfully deleted!!')
@@ -189,7 +189,7 @@ def main():
 
                                     for detail in delete_details():
                                             print(
-                                                f"{detail.user_name} {detail.account_name} {e_address} {detail.phone_number}")
+                                                f"{detail.user_name} {detail.account_name} {e_address} {detail.account_password}")
 
                                     print('\n')
                             else:
