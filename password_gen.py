@@ -1,12 +1,14 @@
-#!/usr/bin/env python3
+# #!/usr/bin/env python3
 
-"""Password generator using Python 3.6 features."""
+# """Password generator using Python 3.6 features."""
 
-# import secrets
+# # import secrets
+
 import random
 import string
 import sys
 
+class Gen
 
 def password(length):
     """Generate a random password."""
