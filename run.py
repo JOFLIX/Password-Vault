@@ -2,6 +2,9 @@
 from detail import Detail
 # from password_gen import Generator
 import pyperclip
+import random
+import string
+import sys
 ######Create functions to implement what the behaviours we have created####
 
 
@@ -61,7 +64,16 @@ def check_existing_details(password):
 ### The function check_existing_details takes in a password as an argument and calls the class method detail_exist which returns a boolean.###
 
 ## Displaying all details ##
-
+def passsword(length):
+    """Generate a random password."""
+    alphabet = string.ascii_letters + string.digits
+    while True:
+        pw = ''.join(random.choice(alphabet) for i in range(length))
+        if (any(c.islower() for c in pw)
+                and any(c.isupper() for c in pw)
+                and any(c.isdigit() for c in pw)):
+            break
+    return(pw)
 
 def display_details():
     """
@@ -78,16 +90,6 @@ def delete_details():
     """
     return Detail.delete_details()
 
-
-def password(length):
-    """Generate a random password."""
-    alphabet = string.ascii_letters + string.digits
-    # while True:
-    pw = ''.join(random.choice(alphabet) for i in range(length))
-    # if (any(c.islower() for c in pw)
-    #     and any(c.isupper() for c in pw)
-    #     and any(c.isdigit() for c in pw))
-    return(pw)
 
 ## Copy Email ##
 #**********************#
@@ -113,13 +115,13 @@ def main():
 
     while True:
                     print(
-                        "Use these short codes to specify how you we may help you : un - create a new user account, dd - display details, fd -find an account detail, exit() -exit the detail list , del -delete detail, clear() -Delete all")
+                        "Use these short codes to specify how you we may help you : un - create a new user account, dd - display details, fd -find an account detail, exit() -exit the detail list , del -delete detail, clear() -Delete all, To generate password run this command on your terminal: $ python3.6 password_gen.py")
 
                     short_code = input().lower()
 
                     if short_code == 'un':
                             print("New User Acccount")
-                            print("-"*10)
+                            print("="*71)
 
                             print("Enter registered account user name ....")
                             f_name = input()
@@ -130,16 +132,14 @@ def main():
                             print("Enter Password")
                             p_password = input()
 
-                            print(
-                                "Email address or account password used to register the account ...")
+                            print("Email address or account password used to register the account ...")
                             e_address = input()
 
                             # create and save new Detail.
                             save_details(create_detail(
                                 f_name, account_name, p_password, e_address))
                             print('\n')
-                            print(
-                                f"New detail {f_name} {account_name}  created")
+                            print(f"New detail {f_name} {account_name}  created")
                             print('\n')
 
                     elif short_code == 'dd':
@@ -187,7 +187,7 @@ def main():
                                  f"{search_detail.user_name} {search_detail.account_name}")
                              print("_"*20)
                              detail.delete_detail()
-
+                        
                              print('\n')
                              print(
                                  f'{f_name} {e_address} Successfully deleted!!')
@@ -209,35 +209,19 @@ def main():
                                     print(
                                         "You dont seem to have any account details saved yet")
                                     print('\n')
-                    else:
-                                    if (any(c.islower() for c in pw)
-                                        and any(c.isupper() for c in pw)
-                                        and any(c.isdigit() for c in pw)):
-                                        "Print a random password."""
-                                    try:
-                                        length = int(sys.argv[1])
-                                    except (IndexError, ValueError):
-                                        length = 16
-                                    if length < 3:
-                                    print(
-                                            "Length {} is too short".format(length))
-                                        sys.exit(1)
-                                    print(password(length))
-
                     elif short_code == "exit()":
-                                    print("Safely secured!!")
+                                print("Safely secured!!")
 
-    # "Print a random password."""
-    # try:
-    #     length = int(sys.argv[1])
-    # except (IndexError, ValueError):
-    #     length = 16
-    # if length < 3:
-    #     print("Length {} is too short".format(length))
-    #     sys.exit(1)
-    # print(password(length))
-
-
+# def password(length):
+#     """Generate a random password."""
+#     alphabet = string.ascii_letters + string.digits
+#     while True:
+#         pw = ''.join(random.choice(alphabet) for i in range(length))
+#         if (any(c.islower() for c in pw)
+#                 and any(c.isupper() for c in pw)
+#                 and any(c.isdigit() for c in pw)):
+            
+#     return(pw)
                                 break
                     else:
                             print(
