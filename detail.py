@@ -1,6 +1,13 @@
 
 import pyperclip
 import random
+import string
+import sys
+
+import random
+import string
+import sys
+
 
 class Detail:
     """
@@ -20,6 +27,10 @@ class Detail:
 
 # detail_list = [] # Empty detail list
  # Init method up here
+    # def password(self,length):
+    #     """Generate a random password."""
+    #     alphabet = string.ascii_letters + string.digits
+    
     def save_detail(self):
         '''
         save_detail method saves detail objects into detail_list
@@ -81,7 +92,16 @@ class Detail:
         '''
         return cls.detail_list
 
-
+    def passsword(self,length):
+        """Generate a random password."""
+        alphabet = string.ascii_letters + string.digits
+        while True:
+            pw = ''.join(random.choice(alphabet) for i in range(length))
+            if (any(c.islower() for c in pw)
+                    and any(c.isupper() for c in pw)
+                    and any(c.isdigit() for c in pw)):
+                break
+        return(pw)
 # ......................
     @classmethod
     def copy_email(cls,password):
@@ -95,4 +115,5 @@ class Detail:
         method that returns the detail list
         '''
         return cls.detail_list
+
 
