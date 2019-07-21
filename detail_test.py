@@ -19,17 +19,17 @@ class TestDetail(unittest.TestCase):
         Set up method to run before each test cases.
         '''
         self.new_detail = Detail(
-            "James", "Muriuki", "0712345678", "james@ms.com")  # create detail object
+            "xyz", "xyz", "2222222222", "xyz@user.com")  # create detail object
 
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_detail.user_name, "James")
-        self.assertEqual(self.new_detail.user_name, "Muriuki")
-        self.assertEqual(self.new_detail.account_password, "0712345678")
-        self.assertEqual(self.new_detail.email, "james@ms.com")
+        self.assertEqual(self.new_detail.user_name, "xyz")
+        self.assertEqual(self.new_detail.user_name, "xyz")
+        self.assertEqual(self.new_detail.account_password, "2222222222")
+        self.assertEqual(self.new_detail.email, "xyz@user.com")
 
     def test_save_detail(self):
         '''
@@ -52,7 +52,7 @@ class TestDetail(unittest.TestCase):
     #         '''
     #         self.new_detail.save_detail()
     #         test_detail = Detail(
-    #             "Test", "user", "0712345678", "test@user.com")  # new detail
+    #             "Test", "user", "2222222222", "xyz@user.com")  # new detail
     #         test_detail.save_detail()
     #         self.assertEqual(len(Detail.detail_list), 2)
 
@@ -66,7 +66,7 @@ class TestDetail(unittest.TestCase):
     #         '''
     #         self.new_detail.save_detail()
     #         test_detail = Detail(
-    #             "Test", "user", "0712345678", "test@user.com")  # new detail
+    #             "Test", "user", "2222222222", "xyz@user.com")  # new detail
     #         test_detail.save_detail()
     #         self.assertEqual(len(Detail.detail_list), 2)
 # setup and class creation up HERE
@@ -85,7 +85,7 @@ class TestDetail(unittest.TestCase):
         """
         self.new_detail.save_detail()
         test_detail = Detail("Test", "user", "2222222222",
-                               "test@user.com")  # new detail_list
+                               "xyz@user.com")  # new detail_list
         test_detail.save_detail()
         self.assertEqual(len(Detail.detail_list), 2)
 # More tests above
@@ -96,7 +96,7 @@ class TestDetail(unittest.TestCase):
             '''
             self.new_detail.save_detail()
             test_detail = Detail(
-                "Test", "user", "22222222222", "test@user.com")  # new detail
+                "Test", "user", "22222222222", "xyz@user.com")  # new detail
             test_detail.save_detail()
 
             self.new_detail.delete_detail()  # Deleting a detail object
@@ -109,7 +109,7 @@ class TestDetail(unittest.TestCase):
 
         self.new_detail.save_detail()
         test_detail = Detail("Test", "user", "2222222222",
-                               "test@user.com")  # new detail
+                               "xyz@user.com")  # new detail
         test_detail.save_detail()
 
         found_detail = Detail.find_by_password("2222222222")
@@ -123,7 +123,7 @@ class TestDetail(unittest.TestCase):
 
         self.new_detail.save_detail()
         test_detail = Detail("Test", "user", "2222222222",
-                               "test@user.com")  # new detail
+                               "xyz@user.com")  # new detail
         test_detail.save_detail()
 
         detail_exists = Detail.detail_exist("2222222222")
@@ -143,7 +143,7 @@ class TestDetail(unittest.TestCase):
         '''
 
         self.new_detail.save_detail()
-        Detail.copy_email("0712345678")
+        Detail.copy_email("2222222222")
 
         self.assertEqual(self.new_detail.email, pyperclip.paste())
 

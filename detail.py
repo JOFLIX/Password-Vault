@@ -1,16 +1,15 @@
-from password_gen import Gen
+
 import pyperclip
 import random
 
 class Detail:
-
     """
-    Class that generates new instances of details.
+    Class that generates new cases of details.
     """
 
     detail_list = []  # Empty detail list
 
-    def __init__(self, user_name, account_name, password,email):
+    def __init__(self, user_name, account_name,password,email):
 
       # docstring removed for simplicity
 
@@ -35,12 +34,15 @@ class Detail:
 
         Detail.detail_list.remove(self)
 
-    def generate_password(self):
+    # def generate_password(self):
 
-        """
-        a method that gnerates pasword using choice and random key words
-        """
-        Detail.detail_list.random(self)
+    #     """
+    #     a method that gnerates pasword using choice and random key words
+    #     """
+    #     Detai.detail.join(random.choice(alphabet) for i in range(length))
+
+
+
         
     @classmethod
     def find_by_password(cls, password):
@@ -93,3 +95,4 @@ class Detail:
         method that returns the detail list
         '''
         return cls.detail_list
+

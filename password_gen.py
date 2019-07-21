@@ -8,8 +8,17 @@ import random
 import string
 import sys
 
-class Gen
 
+# class Gen:
+#     def __init__('pwd')
+#         def generate_password(self):
+
+#             """
+#             a method that gnerates pasword using choice and random key words
+#             """
+#             Gen.pwd.random(self)
+            
+            
 def password(length):
     """Generate a random password."""
     alphabet = string.ascii_letters + string.digits
@@ -20,7 +29,6 @@ def password(length):
                 and any(c.isdigit() for c in pw)):
             break
     return(pw)
-
 
 def main():
     "Print a random password."""
